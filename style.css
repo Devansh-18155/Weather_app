@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    transition: background 1s ease;
+}
+
+/* 3D Glass Card */
+.weather-container {
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(20px);
+    background: rgba(255,255,255,0.15);
+    padding: 35px;
+    border-radius: 25px;
+    width: 330px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    transform: perspective(1000px) rotateX(5deg);
+    transition: 0.5s;
+}
+
+.weather-container:hover {
+    transform: perspective(1000px) rotateX(0deg) scale(1.05);
+}
+
+input, button {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    margin: 5px;
+}
+
+button {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Rain Drops */
+.rain-drop {
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background: rgba(255,255,255,0.6);
+    animation: rain 0.7s linear infinite;
+}
+
+@keyframes rain {
+    from { transform: translateY(-100px); }
+    to { transform: translateY(100vh); }
+}
+
+/* Snow */
+.snowflake {
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    animation: snow 5s linear infinite;
+}
+
+@keyframes snow {
+    from { transform: translateY(-10px); }
+    to { transform: translateY(100vh); }
+}
+
+/* Sun */
+.sun {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, #FFD700, #FFA500);
+    border-radius: 50%;
+    animation: rotateSun 8s linear infinite;
+}
+
+@keyframes rotateSun {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Lightning Flash */
+.flash {
+    animation: lightning 0.2s ease;
+}
+
+@keyframes lightning {
+    0% { background: white; }
+    100% { background: transparent; }
+}
+
+
