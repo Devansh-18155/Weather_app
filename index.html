@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Simple Weather App</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <body>
 
-<div id="weatherEffects"></div>
+<div class="rain" id="rain"></div>
 
-<div class="weather-container">
-    <h1>Weather Tracker</h1>
+<div class="container">
+  <h2>Weather App</h2>
 
-    <div class="search-box">
-        <input type="text" id="cityInput" placeholder="Enter city">
-        <button onclick="getWeather()">Search</button>
-    </div>
+  <div class="top-controls">
+    <input type="text" id="cityInput" placeholder="Enter city">
+    <button id="searchBtn">Search</button>
+    <button id="darkToggle">🌙</button>
+  </div>
 
-    <div class="weather-info">
-        <h2 id="cityName"></h2>
-        <p id="temperature"></p>
-        <p id="description"></p>
-        <p id="humidity"></p>
-        <p id="wind"></p>
-    </div>
+  <button id="locationBtn" class="location-btn">
+    Use My Location
+  </button>
+
+  <div class="weather-card" id="weatherCard"></div>
+
+  <h3 class="forecast-title">4-Day Forecast</h3>
+  <div class="forecast" id="forecast"></div>
+
+  <p class="error" id="error"></p>
 </div>
 
 <script src="script.js"></script>
 </body>
-
-    <script src="script.js"></script>
-</body>
 </html>
+
