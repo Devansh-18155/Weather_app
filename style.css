@@ -1,99 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
-    transition: background 1s ease;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+  transition: 0.5s ease;
+  padding: 20px;
 }
 
-/* 3D Glass Card */
-.weather-container {
-    position: relative;
-    z-index: 2;
-    backdrop-filter: blur(20px);
-    background: rgba(255,255,255,0.15);
-    padding: 35px;
-    border-radius: 25px;
-    width: 330px;
-    text-align: center;
-    color: white;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-    transform: perspective(1000px) rotateX(5deg);
-    transition: 0.5s;
+.dark {
+  background: linear-gradient(135deg, #141E30, #243B55);
 }
 
-.weather-container:hover {
-    transform: perspective(1000px) rotateX(0deg) scale(1.05);
+.container {
+  width: 100%;
+  max-width: 420px;
+  padding: 30px;
+  border-radius: 25px;
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  text-align: center;
+  color: white;
 }
 
-input, button {
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    margin: 5px;
+.top-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
 }
 
-button {
-    cursor: pointer;
-    font-weight: bold;
+.top-controls input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
 }
 
-/* Rain Drops */
-.rain-drop {
-    position: absolute;
-    width: 2px;
-    height: 15px;
-    background: rgba(255,255,255,0.6);
-    animation: rain 0.7s linear infinite;
+.top-controls button {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
-@keyframes rain {
-    from { transform: translateY(-100px); }
-    to { transform: translateY(100vh); }
+.location-btn {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 12px;
 }
 
-/* Snow */
-.snowflake {
-    position: absolute;
-    color: white;
-    font-size: 14px;
-    animation: snow 5s linear infinite;
+.weather-card {
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
-@keyframes snow {
-    from { transform: translateY(-10px); }
-    to { transform: translateY(100vh); }
+.weather-card h3 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  word-break: break-word;
 }
 
-/* Sun */
-.sun {
-    position: absolute;
-    top: 50px;
-    right: 50px;
-    width: 80px;
-    height: 80px;
-    background: radial-gradient(circle, #FFD700, #FFA500);
-    border-radius: 50%;
-    animation: rotateSun 8s linear infinite;
+.weather-card img {
+  width: 80px;
 }
 
-@keyframes rotateSun {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+.temp {
+  font-size: 42px;
+  margin: 10px 0;
 }
 
-/* Lightning Flash */
-.flash {
-    animation: lightning 0.2s ease;
+/* ===== Forecast Fix ===== */
+
+.forecast-title {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-@keyframes lightning {
-    0% { background: white; }
-    100% { background: transparent; }
+.forecast {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: none;
 }
+
+.forecast::-webkit-scrollbar {
+  display: none;
+}
+
+.forecast div {
+  min-width: 80px;
+  background: rgba(255,255,255,0.2);
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.forecast img {
+  width: 40px;
+}
+
+.error {
+  margin-top: 10px;
+  color: #ffcccc;
+}
+
+.rain {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.drop {
+  position: absolute;
+  bottom: 100%;
+  width: 2px;
+  height: 15px;
+  background: rgba(255,255,255,0.5);
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
 
 
